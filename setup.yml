@@ -1,0 +1,17 @@
+---
+- name: "Set up a Matrix server"
+  hosts: "{{ target if target is defined else 'matrix_servers' }}"
+  remote_user: root
+
+  roles:
+    - matrix-base
+    - matrix-mailer
+    - matrix-postgres
+    - matrix-corporal
+    - matrix-synapse
+    - matrix-riot-web
+    - matrix-jitsi
+    - matrix-ma1sd
+    - matrix-nginx-proxy
+    - matrix-coturn
+    - matrix-common-after
